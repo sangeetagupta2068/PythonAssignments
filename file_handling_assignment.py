@@ -7,6 +7,7 @@
 
 '''
 
+
 '''
     objective: this removes a character at position N where N is a multiple of num
                (int) -> (None)
