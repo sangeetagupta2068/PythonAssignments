@@ -11,6 +11,8 @@
     objective: this removes a character at position N where N is a multiple of num
                (int) -> (None)
 '''
+
+
 def remove_character(num):
     read_ptr = open('data.txt', 'r')
     file_content = read_ptr.readlines()
@@ -24,9 +26,8 @@ def remove_character(num):
     write_ptr.close()
     read_ptr.close()
 
+
 if __name__ == '__main__':
     num = int(input('Enter position: '))
     remove_character(num)
     print('File content successfully modified!')
-
-
