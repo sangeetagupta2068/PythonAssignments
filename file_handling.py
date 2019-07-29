@@ -1,8 +1,8 @@
 if __name__ == '__main__':
-    file_ptr = open("data.txt", 'r')
+    file_ptr = open("input_data.txt", 'r')
     temp_file_content = file_ptr.readlines()
 
-    write_ptr = open("data.txt", 'w')
+    write_ptr = open("input_data.txt", 'w')
 
     for line in temp_file_content:
        print(line[:10] + line[11:],end='',file=write_ptr)
