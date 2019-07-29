@@ -13,7 +13,7 @@
 
 if __name__ == '__main__':
     file_read_object = open('/etc/passwd', 'r')
-    file_write_object = open('passwd_username', 'w')
+    file_write_object = open('passwd_username.txt', 'w')
     file_content = file_read_object.readlines()
 
     print('List of usernams in /etc/passwd file are:')
