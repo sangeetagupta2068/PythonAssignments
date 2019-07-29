@@ -16,13 +16,11 @@ if __name__ == '__main__':
     file_write_object = open('passwd_username.txt', 'w')
     file_content = file_read_object.readlines()
 
-    print('List of usernams in /etc/passwd file are:')
+    file_write_object.write('List of usernams in /etc/passwd file are:')
     for line in file_content:
         # line 1
         if line[0] != '#':
-            username = line[:line.find(':')]
-            file_write_object.write(username + '\n')
-            print(username)
+            file_write_object.write(line[:line.find(':')] + '\n')
 
     print('Successfully updated passwd_username.txt file!')
 
