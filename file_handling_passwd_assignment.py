@@ -16,7 +16,7 @@ if __name__ == '__main__':
     file_write_object = open('passwd_username.txt', 'w')
     file_content = file_read_object.readlines()
 
-    file_write_object.write('List of usernams in /etc/passwd file are:')
+    file_write_object.write('List of usernams in /etc/passwd file are: \n')
     for line in file_content:
         # line 1
         if line[0] != '#':
