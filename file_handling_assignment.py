@@ -29,4 +29,4 @@ def remove_character(num):
 if __name__ == '__main__':
     num = int(input('Enter position: '))
     remove_character(num)
-    print('File content successfully modified!')
+    print('Updated file content written to output.txt!')
