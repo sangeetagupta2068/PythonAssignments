@@ -10,18 +10,41 @@
                      Hence, on line 1 a check is provided in order to distinguish the comment from user information.
 
 '''
-
+import logging
 if __name__ == '__main__':
-    file_read_object = open('/etc/passwd', 'r')
-    file_write_object = open('passwd_username.txt', 'w')
-    file_content = file_read_object.readlines()
 
-    for line in file_content:
-        # line 1
-        if line[0] != '#':
-            file_write_object.write(line[:line.find(':')] + '\n')
+    file_read_object = ''
+    file_write_object = ''
+    logging.basicConfig(filename='python_code.log', filemode='w', format='%(asctime)s : %(name)s : %(levelname)s : %(message)s')
+    logging.info('root logged in')
 
-    print('Successfully updated passwd_username.txt file!')
+    try:
+        output_file_name = input('Enter file name:')
+        file_write_object = open(output_file_name, 'w')
+        file_read_object = open('/etc/passwd', 'r')
+        file_content = file_read_object.readlines()
 
-    file_read_object.close()
-    file_write_object.close()
+        for line in file_content:
+            # line 1
+            if line[0] != '#':
+                file_write_object.write(line[:line.find(':')] + '\n')
+
+        print('Successfully updated file!')
+
+        file_write_object.close()
+
+    except PermissionError as e:
+        print("Sorry! Permission denied for file access.")
+        logging.error("Exception occured",exc_info = True)
+
+    except FileNotFoundError as e:
+        print("Sorry couldn't find /etc/passwd file in your system")
+        logging.error("Exception occured",exc_info = True)
+        file_write_object.close()
+
+    except IsADirectoryError as e:
+        print("Expected file name as input but found directory!")
+        logging.error("Exception occurred", exc_info = True)
+
+    finally:
+        logging.info('root logged out')
