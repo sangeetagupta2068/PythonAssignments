@@ -7,8 +7,6 @@
     objective: This program takes an input dictionary with key:value pair as prn:room_number,converts and prints a dictionary with key:value pair as room_no:prn
 '''
 
-import time
-
 '''
     objective: this takes dictionary with prn:room_number  as a parameter and returns a dictionary with room_number:prn
                (dictionary) -> (dictionary)
