@@ -13,6 +13,10 @@ import time
     objective: this takes dictionary with prn:room_number  as a parameter and returns a dictionary with room_number:prn
                (dictionary) -> (dictionary)
 '''
+
+import logging
+
+
 def dictionary_convert(prn_room_dictionary):
     room_prn_dictionary = {}
     unique_room_number_list = set(prn_room_dictionary.values())
@@ -27,17 +31,32 @@ def dictionary_convert(prn_room_dictionary):
 
 
 if __name__ == "__main__":
-    initial_time_taken = time.time()
+    logging.basicConfig(filename='logger.txt', level=logging.DEBUG,
+                        format='%(asctime)s : %(name)s : %(levelname)s : %(message)s')
+    logging.info('root logged in')
 
-    prn_room_dictionary = {
-        '16030121116': 101,
-        '16030121112': 101,
-        '19030142001': 102,
-        '19030142002': 102,
-        '19030141015': 103,
-        '19030121113': 103,
-        '19030122007': 103,
-    }
-    print(dictionary_convert(prn_room_dictionary))
+    try:
+        size = int(input('Enter total item count for your dictionary:'))
+        prn_room_dictionary = {}
 
-    print(time.time() - initial_time_taken)
+        for count in range(size):
+            key_value = input('Enter Student PRN: ')
+            room_value = input('Enter Student Room number: ')
+            prn_room_dictionary[key_value] = room_value
+
+        print(dictionary_convert(prn_room_dictionary))
+
+    except KeyError:
+        print('Key couldn\'t be found!')
+        logging.info('Exception occurred', exc_info=True)
+
+    except TypeError:
+        print('Expected integer as input for size')
+        logging.info('Exception occurred', exc_info=True)
+
+    except Exception:
+        print('Oops! Exception occurred')
+        logging.info('Exception occurred', exc_info=True)
+
+    finally:
+        logging.info('root logged out.')
