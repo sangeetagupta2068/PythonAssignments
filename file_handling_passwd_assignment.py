@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     file_read_object = ''
     file_write_object = ''
-    logging.basicConfig(filename='python_code.log', filemode='w', format='%(asctime)s : %(name)s : %(levelname)s : %(message)s')
+    logging.basicConfig(filename='passwd_logger.txt',level = logging.DEBUG,format='%(asctime)s : %(name)s : %(levelname)s : %(message)s')
     logging.info('root logged in')
 
     try:
@@ -31,18 +31,19 @@ if __name__ == '__main__':
 
         print('Successfully updated file!')
 
+        file_read_object.close()
         file_write_object.close()
 
-    except PermissionError as e:
+    except PermissionError:
         print("Sorry! Permission denied for file access.")
         logging.error("Exception occured",exc_info = True)
 
-    except FileNotFoundError as e:
+    except FileNotFoundError:
         print("Sorry couldn't find /etc/passwd file in your system")
         logging.error("Exception occured",exc_info = True)
         file_write_object.close()
 
-    except IsADirectoryError as e:
+    except IsADirectoryError:
         print("Expected file name as input but found directory!")
         logging.error("Exception occurred", exc_info = True)
 
