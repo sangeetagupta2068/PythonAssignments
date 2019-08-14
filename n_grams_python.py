@@ -57,8 +57,8 @@ if __name__ == "__main__":
         logging.error('Exception occurred', exc_info=True)
 
     except Exception as e:
-        print(e)
-        logging.error('n value was out of index')
+        print(str(e))
+        logging.error(str(e))
 
     finally:
         logging.info('root logged out.')
