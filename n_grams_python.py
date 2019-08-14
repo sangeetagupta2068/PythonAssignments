@@ -10,6 +10,7 @@ import re, logging
 
 n_gram_list = []
 
+
 def n_grams(sentences, n):
     count = 0
     sentences = re.sub(r'[^a-zA-Z0-9]', ' ', sentences).lower()
@@ -32,6 +33,7 @@ if __name__ == "__main__":
     try:
         input_file = input('Enter input file name: ')
         n = int(input('Enter n value: '))
+
         file_read_object = open(input_file, 'r')
         file_content = file_read_object.read()
 
