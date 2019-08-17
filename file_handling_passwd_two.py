@@ -11,9 +11,7 @@ import logging
 
 if __name__ == '__main__':
 
-
     file_read_object = ''
-    file_write_object = ''
     logging.basicConfig(filename='passwd_logger.txt', level=logging.DEBUG,
                         format='%(asctime)s : %(name)s : %(levelname)s : %(message)s')
     logging.info('root logged in')
@@ -21,7 +19,8 @@ if __name__ == '__main__':
     try:
 
         file_read_object = open('/etc/passwd', 'r')
-        username_list = [username[:username.find(':')] for username in file_read_object.readlines() if '/bin/bash' not in username ]
+        username_list = [username[:username.find(':')] for username in file_read_object.readlines() if
+                         '/bin/bash' not in username]
 
         print('List of users: ')
         for username in username_list:
@@ -43,7 +42,7 @@ if __name__ == '__main__':
 
     except Exception:
         print('Oops! Exception occurred')
-        logging.info('Exception occurred',exc_info = True)
+        logging.info('Exception occurred', exc_info=True)
 
     finally:
         logging.info('root logged out')
