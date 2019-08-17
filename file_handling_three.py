@@ -3,9 +3,7 @@
 '''
     created by: Sangeeta Gupta
     created on: 17th August 2019
-    objective: This program retrieves, prints all the system users username who donot have bash their default shell
-               from the /etc/passwd file on the console and writes all retrieved usernames on a file namely
-               passwd_username.txt
+    objective: This program retrieves user information from a csv file and performs various operations on the same
 '''
 import logging
 
