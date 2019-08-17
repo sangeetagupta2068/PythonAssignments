@@ -32,6 +32,7 @@ if __name__ == '__main__':
         user_list = []
         user_information = file_read_object.readlines()
 
+        #assuming first record contains column names as first_name,last_name and phone_number
         del user_information[0]
         user_information[len(user_information) - 1] = user_information[len(user_information) - 1] + '\n'
 
