@@ -46,3 +46,6 @@ if __name__ == '__main__':
 
     finally:
         logging.info('root logged out')
+
+# 4 questions 1 theory ( tree, array,stack, queue any one ) (20)
+# 3 programs 20 marks ( tree(10 theiry - ), list, )

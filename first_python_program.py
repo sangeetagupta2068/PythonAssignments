@@ -21,8 +21,7 @@ def replace_sub_string(value,substring):
     value = ''.join(value)
     return value
 
-def main():
-    value = replace_sub_string("abc123def123ejg123kjh123lmn123qrs123","123")
+if __name__ == '__main__':
+    value = "abc123def123ejg123kjh123lmn123qrs123"
+    value = value.replace("123"," ",6)
     print(value)
-
-main()

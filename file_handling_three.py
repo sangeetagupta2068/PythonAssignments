@@ -10,7 +10,7 @@ import logging
 
 class User(object):
 
-    def __init__(self, firstname, surname, contact_number):
+    def __init__(self, firstname: str, surname : str, contact_number : str):
         self.firstname = firstname
         self.surname = surname
         self.contact_number = contact_number
